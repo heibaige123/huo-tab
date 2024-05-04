@@ -4,17 +4,21 @@
     "version": "1.0.0",
     "description": "浏览器插件学习测试",
     "action": {
-        "default_popup": "index.html"
+        "default_popup": "./src/views/popup/index.html"
     },
     "content_scripts": [
         {
-            "js": ["src/content/index.ts"],
+            "js": ["./src/content/content.js"],
             "matches": ["http://127.0.0.1:5500/*"],
             "all_frames": true,
             "match_about_blank": true
         }
     ],
     "background": {
-        "service_worker": "src/background/service-worker/index.ts"
+        "service_worker": "./src/background/service-worker.js"
+    },
+    "permissions": ["scripting", "activeTab", "storage"],
+    "chrome_url_overrides": {
+        "newtab": "./src/views/newtab/index.html"
     }
 }

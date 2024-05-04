@@ -2,7 +2,27 @@
     "editor.codeActionsOnSave": {
         "source.fixAll": "explicit"
     },
+    "files.associations": {
+        "*.css": "tailwindcss"
+    },
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "cSpell.words": ["breakline", "crxjs", "Prefixs", "rushstack", "stylelint"]
+    "cSpell.words": [
+        "breakline",
+        "crxjs",
+        "duckduckgo",
+        "iconify",
+        "newtab",
+        "Pinia",
+        "Prefixs",
+        "rushstack",
+        "searchbox",
+        "sogou",
+        "sougou",
+        "stylelint",
+        "tailwindcss"
+    ],
+    "css.lint.unknownAtRules": "ignore",
+    "css.lint.unknownVendorSpecificProperties": "warning",
+    "css.lint.validProperties": ["@apply"]
 }

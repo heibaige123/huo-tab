@@ -26,3 +26,8 @@ coverage
 *.sw?
 
 *.tsbuildinfo
+
+
+src/assets/svg/chars.json
+src/assets/svg/info.json
+src/assets/svg/metadata.json

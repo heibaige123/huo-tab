@@ -10,3 +10,5 @@
 
 - git add
 - cz
+
+<<http://localhost:5173/src/views/newtab/index.html>
