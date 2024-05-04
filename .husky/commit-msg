@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+error_exit() {
+    echo "提交信息不符合规范, 请使用 npm run commit 进行提交"
+    exit 1
+}
+
+npx --no-install commitlint --edit "$1" || error_exit "$?"

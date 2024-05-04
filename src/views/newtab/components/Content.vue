@@ -13,7 +13,7 @@ import Searchbox from './searchbox/Searchbox.vue';
             <div class="h-72">
                 <Searchbox />
             </div>
-            <div class="">
+            <div class="h-full">
                 <Main />
             </div>
         </div>
