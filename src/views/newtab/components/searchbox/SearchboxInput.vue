@@ -22,9 +22,9 @@ function handleSearch() {
 </script>
 
 <template>
-    <div class="h-full py-2 mx-2">
+    <div class="mx-2 h-full py-2">
         <input
-            class="size-full outline-none bg-orange-50 px-2 font-medium text-2xl"
+            class="size-full bg-orange-50 px-2 text-2xl font-medium outline-none"
             v-model="searchWord"
             @keyup.enter="handleSearch"
         />

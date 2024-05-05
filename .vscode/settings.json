@@ -18,11 +18,13 @@
         "newtab",
         "Pinia",
         "Prefixs",
+        "radash",
         "rushstack",
         "searchbox",
         "sogou",
         "sougou",
         "stylelint",
-        "tailwindcss"
+        "tailwindcss",
+        "unref"
     ]
 }

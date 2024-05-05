@@ -17,5 +17,8 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-    <Icon :icon="icon" :class="className" />
+    <Icon
+        :icon="icon"
+        :class="className"
+    />
 </template>

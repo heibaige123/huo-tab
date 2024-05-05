@@ -21,17 +21,20 @@ function handleMouseLeave() {
 </script>
 
 <template>
-    <div class="menu-inner menu-inner-1 flex relative">
+    <div class="menu-inner menu-inner-1 relative flex">
         <!-- icon -->
         <div
             class=""
             @mouseleave="setIsShowMenuText(false)"
             @mouseenter="setIsShowMenuText(true)"
         >
-            <template v-for="item in menuList" :key="item.id">
+            <template
+                v-for="item in menuList"
+                :key="item.id"
+            >
                 <div
                     :class="[
-                        'flex items-center hover:bg-amber-300 h-12 mb-2 rounded-lg',
+                        'mb-2 flex h-12 items-center rounded-lg hover:bg-amber-300',
                         {
                             'bg-amber-300': selectMenuItemId === item.id
                         }
@@ -40,21 +43,30 @@ function handleMouseLeave() {
                     @mouseleave="handleMouseLeave"
                 >
                     <div
-                        class="w-[52px] flex justify-center"
+                        class="flex w-[52px] justify-center"
                         @click="setSelectMenuItemId(item.id)"
                     >
-                        <Icon :icon="item.icon" class-name="text-3xl" />
+                        <Icon
+                            :icon="item.icon"
+                            class-name="text-3xl"
+                        />
                     </div>
                 </div>
             </template>
         </div>
 
         <!-- 文本 -->
-        <div class="ml-3" v-show="isShowMenuText">
-            <template v-for="item in menuList" :key="item.id">
+        <div
+            class="ml-3"
+            v-show="isShowMenuText"
+        >
+            <template
+                v-for="item in menuList"
+                :key="item.id"
+            >
                 <div
                     :class="[
-                        'flex items-center justify-start h-12 mb-2 text-2xl text-red-800 rounded-lg px-3',
+                        'mb-2 flex h-12 items-center justify-start rounded-lg px-3 text-2xl text-red-800',
                         {
                             'bg-slate-300': hoverMenuItemId === item.id
                         }

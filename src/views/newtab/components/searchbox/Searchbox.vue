@@ -10,9 +10,9 @@ const { isShowSearchServerList } = storeToRefs(searchboxStore);
 </script>
 
 <template>
-    <div class="bg-red-100 h-full flex justify-center items-center flex-col">
-        <div class="min-w-[700px] relative">
-            <div class="bg-zinc-300 h-16 px-2 flex rounded-3xl">
+    <div class="flex h-full flex-col items-center justify-center">
+        <div class="relative min-w-[700px]">
+            <div class="flex h-16 rounded-3xl bg-zinc-300 px-2">
                 <div class="flex-grow-0 self-center">
                     <SearchboxIcon />
                 </div>

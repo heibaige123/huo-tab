@@ -32,3 +32,28 @@ export interface IUserInfo {
      */
     avatar: string;
 }
+
+/**
+ * 收藏的网址信息
+ */
+export interface ISiteInfo {
+    /**
+     * 网址名称
+     */
+    name: string;
+
+    /**
+     * 网址链接
+     */
+    url: string;
+
+    /**
+     * 网站图标
+     */
+    img: string;
+
+    /**
+     * 网站唯一标识
+     */
+    id: string;
+}

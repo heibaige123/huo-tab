@@ -9,22 +9,28 @@ const { searchServerId } = storeToRefs(searchboxStore);
 </script>
 
 <template>
-    <div class="bg-zinc-100 absolute rounded-3xl p-3 mt-1 w-full select-none">
+    <div class="absolute mt-1 w-full select-none rounded-3xl bg-zinc-100 p-3">
         <ul class="grid gap-1">
-            <template v-for="item in searchServerList" :key="item.id">
+            <template
+                v-for="item in searchServerList"
+                :key="item.id"
+            >
                 <li
                     :class="[
-                        'flex cursor-pointer items-center p-2 rounded-xl',
+                        'flex cursor-pointer items-center rounded-xl p-2',
                         {
                             'bg-pink-200': searchServerId === item.id
                         }
                     ]"
                     @click="setSearchServerId(item.id)"
                 >
-                    <div class="w-10 h-10 p-1 bg-teal-100 rounded-md">
-                        <Icon :icon="item.icon" class-name="size-full" />
+                    <div class="h-10 w-10 rounded-md bg-teal-100 p-1">
+                        <Icon
+                            :icon="item.icon"
+                            class-name="size-full"
+                        />
                     </div>
-                    <div class="text-lg ml-2">
+                    <div class="ml-2 text-lg">
                         {{ item.name }}
                     </div>
                 </li>

@@ -32,7 +32,10 @@ onMounted(() => {
         ]"
         @click="handleClick"
     >
-        <template v-for="item in searchServerList" :key="item.id">
+        <template
+            v-for="item in searchServerList"
+            :key="item.id"
+        >
             <template v-if="item.id === searchServerId">
                 <Icon :icon="item.icon" />
             </template>
