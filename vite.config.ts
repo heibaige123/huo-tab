@@ -30,7 +30,8 @@ export default defineConfig({
         }
     },
     build: {
-        minify: false,
+        // minify: false,
+        minify: true,
         write: true,
         rollupOptions: {
             input: {
