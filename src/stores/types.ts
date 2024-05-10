@@ -56,4 +56,9 @@ export interface ISiteInfo {
      * 网站唯一标识
      */
     id: string;
+
+    /**
+     * 背景颜色
+     */
+    bgColor?: string;
 }

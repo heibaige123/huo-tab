@@ -3,4 +3,5 @@ export interface ISiteItemProps {
     name: string;
     url: string;
     img: string;
+    bgColor?: string;
 }

@@ -10,6 +10,8 @@ const siteStore = useSiteStore();
 const { isDragging } = storeToRefs(siteStore);
 const refNode = ref<HTMLElement>();
 
+const bgColor = props.bgColor;
+
 function handleMouseEnter() {
     if (!isDragging.value) {
         return;
@@ -21,7 +23,10 @@ function handleMouseEnter() {
 
 <template>
     <div
-        class="col-span-1 row-span-1 flex max-h-[128px] grow-0 select-none auto-cols-fr justify-center overflow-hidden rounded-xl bg-red-300 p-2 drop-shadow-2xl"
+        :class="[
+            'col-span-1 row-span-1 flex max-h-[128px] grow-0 select-none auto-cols-fr justify-center overflow-hidden rounded-xl p-2 drop-shadow-2xl',
+            style['site-item']
+        ]"
         @mouseenter="handleMouseEnter"
         ref="refNode"
     >
@@ -36,3 +41,9 @@ function handleMouseEnter() {
         </div>
     </div>
 </template>
+
+<style module="style">
+.site-item {
+    background-color: v-bind(bgColor);
+}
+</style>

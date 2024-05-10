@@ -1,0 +1,16 @@
+{
+    "name": "sortablejs",
+    "exportName": "Sortable",
+    "version": "1.15.2",
+    "main": "entry.js",
+    "types": "index.d.ts",
+    "module": "entry.js",
+    "devDependencies": {
+        "@types/sortablejs": "^1.15.8"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/SortableJS/Sortable.git"
+    },
+    "license": "MIT"
+}

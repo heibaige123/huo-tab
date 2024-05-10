@@ -2,8 +2,8 @@
 import SiteItem from './SiteItem.vue';
 import { useSiteStore } from '@/stores';
 import { storeToRefs } from 'pinia';
-import { ref, type Ref } from 'vue';
-import { useDraggable, type UseDraggableReturn } from 'vue-draggable-plus';
+import Sortable from '@/drag/Sortable';
+import { onMounted, ref } from 'vue';
 
 const siteStore = useSiteStore();
 const { currentSiteList: siteList } = siteStore;
@@ -11,10 +11,10 @@ const { isDragging } = storeToRefs(siteStore);
 
 const dragContainerRef = ref();
 
-useDraggable<UseDraggableReturn>(
-    dragContainerRef,
-    siteList as unknown as Ref<any[]>,
-    {
+console.log('--', Sortable);
+
+onMounted(() => {
+    Sortable.create(dragContainerRef.value, {
         animation: 150,
         onStart() {
             isDragging.value = true;
@@ -36,8 +36,8 @@ useDraggable<UseDraggableReturn>(
             console.log('dragover');
             isDragging.value = false;
         }
-    }
-);
+    });
+});
 </script>
 
 <template>

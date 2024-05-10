@@ -9,7 +9,7 @@
         "preview": "vite preview",
         "build-only": "vite build",
         "type-check": "vue-tsc --build --force",
-        "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+        "lint": "eslint . --ext .vue,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
         "format": "prettier --write src/",
         "build:icon": "node ./build-self-icon/index.js",
         "commit": "git-cz",
@@ -18,11 +18,8 @@
     "dependencies": {
         "pinia": "^2.1.7",
         "radash": "^12.1.0",
-        "react-dnd-html5-backend": "^16.0.1",
         "sortablejs": "^1.15.2",
-        "vue": "^3.4.21",
-        "vue-draggable-plus": "^0.4.0",
-        "vue3-dnd": "^2.1.0"
+        "vue": "^3.4.21"
     },
     "devDependencies": {
         "@commitlint/cli": "^19.3.0",
@@ -32,6 +29,7 @@
         "@rushstack/eslint-patch": "^1.8.0",
         "@tsconfig/node20": "^20.1.4",
         "@types/node": "^20.12.5",
+        "@types/sortablejs": "^1.15.8",
         "@vitejs/plugin-vue": "^5.0.4",
         "@vitejs/plugin-vue-jsx": "^3.1.0",
         "@vue/eslint-config-prettier": "^9.0.0",
@@ -57,12 +55,11 @@
         "vue-tsc": "^2.0.11"
     },
     "lint-staged": {
-        "src/**/*.{js,jsx,ts,tsx,vue}": [
+        "src/**/*.{ts,tsx,vue}": [
             "eslint --fix",
             "prettier  --write"
         ],
         "src/**/*.{css,scss,less}": [
-            "stylelint",
             "prettier  --write"
         ]
     },
