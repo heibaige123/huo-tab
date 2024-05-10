@@ -1,38 +1,55 @@
 <script setup lang="ts">
 import SiteItem from './SiteItem.vue';
-import { useMenuStore, useSiteStore } from '@/stores';
+import { useSiteStore } from '@/stores';
 import { storeToRefs } from 'pinia';
-import { computed } from 'vue';
-import { useDrop } from 'vue3-dnd';
+import { ref, type Ref } from 'vue';
+import { useDraggable, type UseDraggableReturn } from 'vue-draggable-plus';
 
 const siteStore = useSiteStore();
-const menuStore = useMenuStore();
+const { currentSiteList: siteList } = siteStore;
+const { isDragging } = storeToRefs(siteStore);
 
-const { siteMap } = siteStore;
-const { selectMenuItemId } = storeToRefs(menuStore);
+const dragContainerRef = ref();
 
-const siteList = computed(() => {
-    return siteMap[selectMenuItemId.value];
-});
-
-const [, drop] = useDrop(() => ({
-    accept: 'siteList'
-}));
+useDraggable<UseDraggableReturn>(
+    dragContainerRef,
+    siteList as unknown as Ref<any[]>,
+    {
+        animation: 150,
+        onStart() {
+            isDragging.value = true;
+            console.log('start');
+        },
+        onUpdate() {
+            console.log('update');
+        },
+        onSort() {
+            console.log('sort');
+        },
+        onChange({ newIndex, oldIndex }) {
+            console.log('change', newIndex, oldIndex);
+        },
+        onChoose(q) {
+            console.log('choose', q);
+        },
+        onUnchoose() {
+            console.log('dragover');
+            isDragging.value = false;
+        }
+    }
+);
 </script>
 
 <template>
     <div
-        class="grid auto-rows-auto grid-cols-12 gap-5 px-60 pb-96"
-        :ref="drop"
+        class="grid auto-rows-auto grid-cols-6 gap-5 px-60 pb-96"
+        ref="dragContainerRef"
     >
         <template
-            v-for="(item, index) in siteList"
+            v-for="item in siteList"
             :key="item.id"
         >
-            <SiteItem
-                v-bind="item"
-                :index="index"
-            />
+            <SiteItem v-bind="item" />
         </template>
     </div>
 </template>

@@ -1,4 +1,4 @@
-export interface ISiteItem {
+export interface ISiteItemProps {
     id: string;
     name: string;
     url: string;

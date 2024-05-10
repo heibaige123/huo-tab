@@ -7,6 +7,7 @@
 - [Chrome 浏览器插件开发实践指南](https://18055975947.github.io/extension/)
 - [ve3-dnd](https://www.vue3-dnd.com/)
 - [vue-draggable-plus](https://vue-draggable-plus.pages.dev/)
+- [sortablejs](https://github.com/SortableJS/Sortable)
 
 ## git提交
 
