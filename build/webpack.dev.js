@@ -2,6 +2,7 @@ const path = require('path');
 const { merge } = require('webpack-merge');
 const baseConfig = require('./webpack.base.js');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 //合并公共配置，并添加开发环境配置
 module.exports = merge(baseConfig, {
@@ -9,6 +10,7 @@ module.exports = merge(baseConfig, {
   devtool: 'eval-cheap-module-source-map', //源码调试的模式，后面单独会说
   plugins: [
     new ReactRefreshWebpackPlugin(), // 添加热更新插件
+    new FriendlyErrorsWebpackPlugin(),
   ],
   devServer: {
     port: 9999, //服务端口号

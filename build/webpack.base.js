@@ -1,6 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const LinkTypePlugin =
+  require('html-webpack-link-type-plugin').HtmlWebpackLinkTypePlugin;
 
 /** @type {import('webpack/types.d.ts').Configuration} */
 module.exports = {
@@ -23,9 +26,23 @@ module.exports = {
     type: 'filesystem', // 使用文件缓存
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+    }),
+    new LinkTypePlugin({
+      '*.css': 'text/css',
+      '*.js': 'text/javascript',
+      '*.png': 'image/png',
+      '*.jpg': 'image/jpeg',
+      '*.jpeg': 'image/jpeg',
+      '*.gif': 'image/gif',
+      '*.webp': 'image/webp',
+      '*.bmp': 'image/bmp',
+    }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../public/index.html'), //模板用定义root节点的模板
-      inject: true, //自动注入静态资源
+      // inject: true, //自动注入静态资源
     }),
     new CopyPlugin({
       patterns: [
@@ -56,8 +73,18 @@ module.exports = {
         },
       },
       {
-        test: /.(css|scss)$/, //匹配 css和scss 文件
-        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
+        test: /.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+      },
+      // 对less文件的处理
+      {
+        test: /.less$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'less-loader',
+        ],
       },
       {
         test: /.(png|jpg|jpeg|gif|svg)$/, // 匹配图片文件
