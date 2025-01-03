@@ -16,10 +16,10 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@style/*": ["./src/assets/style/*"],
-      "@img/*": ["./src/assets/images/*"],
+      "@common/*": ["./packages/common/*"],
+      "@newtab/*": ["./packages/newtab/src/*"],
+      "@popup/*": ["./packages/popup/src/*"]
     }
   },
-  "include": ["./src/**/.{ts,tsx}", "./types/**/*.d.ts"],
+  "include": ["./packages/**/.{ts,tsx}", "./types/**/*.d.ts"]
 }

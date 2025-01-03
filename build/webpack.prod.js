@@ -3,8 +3,24 @@ const baseConfig = require('./webpack.base.js');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = merge(baseConfig, {
-  mode: 'production', //生产模式下，会开启tree-shaking和压缩代码，以及其他优化
-  plugins: [
-    new CssMinimizerWebpackPlugin(),
-  ],
+  mode: 'production',
+  plugins: [new CssMinimizerWebpackPlugin()],
+  splitChunks: {
+    cacheGroups: {
+      vendors: {
+        test: /node_modules/,
+        name: 'vendors',
+        minChunks: 1,
+        chunks: 'initial',
+        minSize: 0,
+        priority: 1,
+      },
+      commons: {
+        name: 'commons',
+        minChunks: 2,
+        chunks: 'initial',
+        minSize: 0,
+      },
+    },
+  },
 });

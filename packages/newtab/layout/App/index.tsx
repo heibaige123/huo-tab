@@ -1,5 +1,5 @@
 import React from 'react';
-import BackImg from '@img/back.jpg';
+import BackImg from '@common/images/back.jpg';
 
 export function App(): React.JSX.Element {
   return (

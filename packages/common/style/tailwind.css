@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('./theme/new-york.less');
+@import url('./theme/new-york.css');
 
 @layer base {
   * {
