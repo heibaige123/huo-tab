@@ -18,8 +18,10 @@
     "paths": {
       "@common/*": ["./packages/common/*"],
       "@newtab/*": ["./packages/newtab/src/*"],
-      "@popup/*": ["./packages/popup/src/*"]
+      "@popup/*": ["./packages/popup/src/*"],
+      "^shadcn/*": ["./packages/common/shadcn/*"],
+      "^components/*": ["./packages/common/components/*"]
     }
   },
-  "include": ["./packages/**/.{ts,tsx}", "./types/**/*.d.ts"]
+  "include": ["./packages/**/.{ts,tsx}", "./types/*.d.ts"]
 }

@@ -1,0 +1,19 @@
+{
+  "recommendations": [
+    "eamodio.gitlens",
+    "formulahendry.auto-close-tag",
+    "nucllear.vscode-extension-auto-import",
+    "formulahendry.auto-rename-tag",
+    "streetsidesoftware.code-spell-checker",
+    "usernamehw.errorlens",
+    "mhutchie.git-graph",
+    "donjayamanne.githistory",
+    "antfu.iconify",
+    "kisstkondoros.vscode-gutter-preview",
+    "idered.npm",
+    "esbenp.prettier-vscode",
+    "jock.svg",
+    "bradlc.vscode-tailwindcss",
+    "wayou.vscode-todo-highlight"
+  ]
+}

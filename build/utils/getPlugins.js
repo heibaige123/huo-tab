@@ -10,7 +10,7 @@ const urlPrefix = '../..';
 function getPlugins() {
   return [
     new MiniCssExtractPlugin({
-      filename: '[name].css',
+      filename: 'static/css/[name].css',
       chunkFilename: '[id].css',
     }),
     new LinkTypePlugin({
@@ -30,11 +30,13 @@ function getPlugins() {
       ),
       inject: true,
       filename: 'newtab/index.html',
+      chunks: ['vendors', 'common', 'newtab'],
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, `${urlPrefix}/public/popup/index.html`),
       inject: true,
       filename: 'popup/index.html',
+      chunks: ['vendors', 'common', 'popup'],
     }),
     new CopyPlugin({
       patterns: [
