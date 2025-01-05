@@ -16,12 +16,12 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@common/*": ["./packages/common/*"],
-      "@newtab/*": ["./packages/newtab/src/*"],
-      "@popup/*": ["./packages/popup/src/*"],
-      "^shadcn/*": ["./packages/common/shadcn/*"],
-      "^components/*": ["./packages/common/components/*"]
+      "@common/*": ["packages/common/*"],
+      "@shadcn/*": ["packages/common/shadcn/*"],
+      "@components/*": ["packages/common/components/*"],
+      "@newtab/*": ["packages/newtab/src/*"],
+      "@popup/*": ["packages/popup/src/*"]
     }
   },
-  "include": ["./packages/**/.{ts,tsx}", "./types/*.d.ts"]
+  "include": ["packages/**/*.{ts,tsx}"]
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { HuoAvatar } from '^components/Avatar';
-import { HuoIcon } from '^components/Icon';
+import { HuoAvatar } from '@components/Avatar/index';
+import { HuoIcon } from '@components/Icon';
 
 export function LeftAside(): React.JSX.Element {
   return (
