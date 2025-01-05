@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import '@common/style/tailwind.css';
+import '^style/tailwind.css';
 
 import { App } from './layout/App';
 

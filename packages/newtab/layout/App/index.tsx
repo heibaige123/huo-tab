@@ -1,5 +1,5 @@
 import React from 'react';
-import BackImg from "@common/images/back.jpg";
+import BackImg from "^images/back.jpg";
 
 import { LeftAside } from '../LeftAside';
 import { Header } from '../Header/index';

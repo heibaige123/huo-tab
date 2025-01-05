@@ -1,5 +1,5 @@
 import React, { JSX } from 'react';
-import { Avatar, AvatarFallback, AvatarImage } from '@shadcn/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '^shadcn/avatar';
 
 export function HuoAvatar(): JSX.Element {
   return (
