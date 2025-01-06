@@ -48,6 +48,9 @@ importers:
       '@iconify/react':
         specifier: ^5.1.0
         version: 5.2.0(react@19.0.0)
+      '@iconify/tailwind':
+        specifier: ^1.2.0
+        version: 1.2.0
       '@pmmmwh/react-refresh-webpack-plugin':
         specifier: ^0.5.15
         version: 0.5.15(react-refresh@0.16.0)(webpack-dev-server@5.2.0(webpack-cli@6.0.1)(webpack@5.97.1))(webpack@5.97.1(webpack-cli@6.0.1))
@@ -93,6 +96,9 @@ importers:
       mini-css-extract-plugin:
         specifier: ^2.9.2
         version: 2.9.2(webpack@5.97.1(webpack-cli@6.0.1))
+      postcss-import:
+        specifier: ^16.1.0
+        version: 16.1.0(postcss@8.4.49)
       postcss-loader:
         specifier: ^8.1.1
         version: 8.1.1(postcss@8.4.49)(typescript@5.7.2)(webpack@5.97.1(webpack-cli@6.0.1))
@@ -936,6 +942,9 @@ packages:
     resolution: {integrity: sha512-7Sdjrqq3fkkQNks9SY3adGC37NQTHsBJL2PRKlQd455PoDi9s+Es9AUTY+vGLFOYs5yO9w9yCE42pmxCwG26WA==}
     peerDependencies:
       react: '>=16'
+
+  '@iconify/tailwind@1.2.0':
+    resolution: {integrity: sha512-KgpIHWOTcRYw1XcoUqyNSrmYyfLLqZYu3AmP8zdfLk0F5TqRO8YerhlvlQmGfn7rJXgPeZN569xPAJnJ53zZxA==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -2758,6 +2767,12 @@ packages:
   postcss-import@15.1.0:
     resolution: {integrity: sha512-hpr+J05B2FVYUAXHeK1YyI267J/dDDhMU6B6civm8hSY1jYJnBXxzKDKDswzJmtLHryrjhnDjqqp/49t8FALew==}
     engines: {node: '>=14.0.0'}
+    peerDependencies:
+      postcss: ^8.0.0
+
+  postcss-import@16.1.0:
+    resolution: {integrity: sha512-7hsAZ4xGXl4MW+OKEWCnF6T5jqBw80/EE9aXg1r2yyn1RsVEU8EtKXbijEODa+rg7iih4bKf7vlvTGYR4CnPNg==}
+    engines: {node: '>=18.0.0'}
     peerDependencies:
       postcss: ^8.0.0
 
@@ -4585,6 +4600,10 @@ snapshots:
       '@iconify/types': 2.0.0
       react: 19.0.0
 
+  '@iconify/tailwind@1.2.0':
+    dependencies:
+      '@iconify/types': 2.0.0
+
   '@iconify/types@2.0.0': {}
 
   '@isaacs/cliui@8.0.2':
@@ -6370,6 +6389,13 @@ snapshots:
       postcss-value-parser: 4.2.0
 
   postcss-import@15.1.0(postcss@8.4.49):
+    dependencies:
+      postcss: 8.4.49
+      postcss-value-parser: 4.2.0
+      read-cache: 1.0.0
+      resolve: 1.22.10
+
+  postcss-import@16.1.0(postcss@8.4.49):
     dependencies:
       postcss: 8.4.49
       postcss-value-parser: 4.2.0

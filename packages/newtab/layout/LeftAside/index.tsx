@@ -1,16 +1,30 @@
 import React from 'react';
-
-import { HuoAvatar } from '^components/Avatar';
-import { HuoIcon } from '^components/Icon';
+import { Line, Menu, Setting } from './Components';
+import { HuoAvatar } from '@common/components/Avatar';
+import { MenuItem } from '@common/components/MenuItem';
 
 export function LeftAside(): React.JSX.Element {
   return (
-    <div className="bg-slate-100 h-full w-full flex items-center">
-      <div className="bg-opacity-40 bg-black h-96 p-2 rounded-lg ml-3 cursor-pointer select-none flex flex-col items-center">
+    <div
+      className="
+        w-full h-full flex flex-col justify-center
+      "
+    >
+      <div className="ml-2 p-2 bg-slate-100 h-sidebar rounded-xl flex flex-col">
         <HuoAvatar />
 
-        <HuoIcon icon="pepicons-pop:line-x"  className="text-gray-500 h-4 w-10"/>
+        <Line />
+
+        <Menu />
+
+        <Line />
+
+        <div className="mt-2">
+          <MenuItem icon="subway:add" />
+        </div>
       </div>
+
+      <Setting />
     </div>
   );
 }

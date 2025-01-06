@@ -15,6 +15,6 @@ module.exports = merge(baseConfig, {
     static: {
       directory: path.join(__dirname, '../public'),
     },
-    open: true,
+    // open: true,
   },
 });

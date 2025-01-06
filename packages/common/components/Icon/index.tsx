@@ -1,6 +1,6 @@
-import { JSX } from 'react';
+import React from 'react';
 import { Icon as IconComponent, IconProps } from '@iconify/react';
 
-export function HuoIcon(props: IconProps): JSX.Element {
+export function HuoIcon(props: IconProps): React.JSX.Element {
   return <IconComponent {...props} />;
 }

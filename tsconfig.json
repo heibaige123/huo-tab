@@ -26,5 +26,5 @@
       "@popup/*": ["packages/popup/src/*"]
     }
   },
-  "include": ["packages/**/*"],
+  "include": ["packages/**/*"]
 }

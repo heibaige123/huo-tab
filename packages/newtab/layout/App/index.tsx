@@ -12,7 +12,7 @@ export function App(): React.JSX.Element {
       className="w-screen h-screen flex justify-between"
       style={{ backgroundImage: `url(${BackImg})` }}
     >
-      <div className="h-full w-40">
+      <div className="h-full w-[60px] bg-lime-50">
         <LeftAside />
       </div>
 
