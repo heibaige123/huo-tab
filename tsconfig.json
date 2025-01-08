@@ -23,7 +23,8 @@
       "^shadcn/*": ["packages/common/shadcn/*"],
       "^style/*": ["packages/common/style/*"],
       "@newtab/*": ["packages/newtab/src/*"],
-      "@popup/*": ["packages/popup/src/*"]
+      "@popup/*": ["packages/popup/src/*"],
+      "@store/*": ["packages/store/*"]
     }
   },
   "include": ["packages/**/*"]
