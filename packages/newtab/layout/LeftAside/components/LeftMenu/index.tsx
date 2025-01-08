@@ -1,5 +1,5 @@
-import { MenuItem } from '^components/MenuItem';
-import React from 'react';
+import { MenuItem } from '../MenuItem';
+import * as React from 'react';
 
 const menuLit = [
   {
@@ -16,7 +16,7 @@ for (let i = 0; i < 3; i++) {
   menuLit.push(...menuLit);
 }
 
-export function Menu() {
+export function LeftMenu():React.JSX.Element {
   const [selectIndex, setSelectIndex] = React.useState(0);
 
   return (
@@ -53,22 +53,6 @@ export function Menu() {
           </div>
         </div>
       ))}
-    </div>
-  );
-}
-
-export function Line() {
-  return (
-    <div className="flex justify-center">
-      <div className="bg-gray-500 w-7 h-[3px] mt-2 rounded-full" />
-    </div>
-  );
-}
-
-export function Setting() {
-  return (
-    <div className="ml-2 p-2 absolute bottom-6">
-      <MenuItem icon="lets-icons:setting-fill" />
     </div>
   );
 }

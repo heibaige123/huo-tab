@@ -1,30 +1,30 @@
 import React from 'react';
-import { Line, Menu, Setting } from './Components';
 import { HuoAvatar } from '@common/components/Avatar';
-import { MenuItem } from '@common/components/MenuItem';
+import { LeftMenu } from './components/LeftMenu';
+import { AddBtn } from './components/SettingBtn';
+import { MenuLine } from './components/MenuLine';
+import { SettingBtn } from './components/AddBtn';
 
 export function LeftAside(): React.JSX.Element {
   return (
-    <div
-      className="
-        w-full h-full flex flex-col justify-center
-      "
-    >
-      <div className="ml-2 p-2 bg-slate-100 h-sidebar rounded-xl flex flex-col">
+    <div className="w-full h-full flex flex-col justify-center">
+      <div className="ml-2 p-2 bg-slate-100 h-sidebar rounded-xl flex flex-col relative">
         <HuoAvatar />
 
-        <Line />
+        <MenuLine />
 
-        <Menu />
+        <LeftMenu />
 
-        <Line />
+        <MenuLine />
 
-        <div className="mt-2">
-          <MenuItem icon="subway:add" />
+        <div className="mt-4">
+          <AddBtn />
         </div>
       </div>
 
-      <Setting />
+      <div className="mt-2">
+        <SettingBtn />
+      </div>
     </div>
   );
 }

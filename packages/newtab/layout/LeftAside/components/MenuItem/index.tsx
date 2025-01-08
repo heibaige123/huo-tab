@@ -1,7 +1,6 @@
-import React from 'react';
-
-import { HuoIcon } from '../Icon';
+import { HuoIcon } from '^components/Icon';
 import { IconProps } from '@iconify/react';
+import * as React from 'react';
 
 export function MenuItem(props: IconProps): React.JSX.Element {
   return (
@@ -13,7 +12,7 @@ export function MenuItem(props: IconProps): React.JSX.Element {
         rounded-sm
      "
     >
-      <HuoIcon {...props} width="28" height="28"/>
+      <HuoIcon {...props} width="28" height="28" />
     </div>
   );
 }
