@@ -1,20 +1,27 @@
 import { useNewTabStore } from '@store/index';
-import React from 'react';
+import { LabelCollectionItemType } from '@store/types';
+import {
+  motion,
+  MotionValue,
+  useScroll,
+  useSpring,
+  useTransform,
+} from 'motion/react';
+import React, { useRef } from 'react';
+import styles from './index.module.css';
 
 export function Content(): React.JSX.Element {
-  const currentLabelCollection = useNewTabStore((state) => {
-    return (
-      state.labelCollections.find(
-        (labelCollection) => labelCollection.id === state.selectedId
-      ) || state.labelCollections[0]
-    );
-  });
+  const labelCollections = useNewTabStore((state) => state.labelCollections);
 
   return (
-    <div>
-      <div className="bg-red-700 w-96 h-96">
-        {currentLabelCollection.content[0].title}
-      </div>
+    <div className={styles['content']}>
+      {labelCollections.map((item) => {
+        return (
+          <section className={styles['content-inner']} key={item.id}>
+            <div>{item.content[0].title}</div>
+          </section>
+        );
+      })}
     </div>
   );
 }

@@ -1,0 +1,5 @@
+.new-tab-header {
+  @apply h-[var(--header-height)];
+}
+
+
