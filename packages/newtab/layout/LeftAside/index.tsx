@@ -8,17 +8,20 @@ import { SettingBtn } from './components/AddBtn';
 export function LeftAside(): React.JSX.Element {
   return (
     <div className="w-full h-full flex flex-col justify-center">
-      <div className="ml-2 p-2 bg-slate-100 h-sidebar rounded-xl flex flex-col relative">
-        <HuoAvatar />
-
-        <MenuLine />
+      <div className="ml-2 p-2 bg-slate-100 h-sidebar rounded-xl flex flex-col justify-between">
+        <div>
+          <HuoAvatar />
+          <MenuLine />
+        </div>
 
         <LeftMenu />
 
-        <MenuLine />
+        <div>
+          <MenuLine />
 
-        <div className="mt-4">
-          <AddBtn />
+          <div className="mt-4">
+            <AddBtn />
+          </div>
         </div>
       </div>
 

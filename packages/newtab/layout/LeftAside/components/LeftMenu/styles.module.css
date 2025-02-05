@@ -1,0 +1,22 @@
+.left-container {
+  @apply mt-2 overflow-y-hidden relative w-[200px];
+}
+
+.menu-item {
+  @apply flex items-center h-14 relative;
+}
+
+.menu-item-icon {
+  @apply rounded-sm;
+}
+
+.menu-item-icon:hover ~ .menu-item-txt {
+  @apply bg-white text-black bg-opacity-80 max-w-[150px] ml-3 shadow-md;
+}
+
+.menu-item-txt {
+  @apply ml-2 px-2 py-[2px] select-none rounded-sm text-center;
+  @apply text-white font-medium;
+  @apply transition-all;
+  @apply line-clamp-1;
+}

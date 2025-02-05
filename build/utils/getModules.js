@@ -16,8 +16,33 @@ function getBaseModules() {
         ],
       },
       {
-        test: /.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+        test: /\.module\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: "[local]_[hash:base64:5]",
+                auto: true,
+                namedExport: false, // 确保 namedExport 为 false
+                exportLocalsConvention: "as-is",
+              },
+              import: true,
+              esModule: true,
+            },
+          },
+          'postcss-loader',
+        ],
+      },
+      {
+        test: /\.css$/,
+        exclude: /\.module\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+        ],
       },
       {
         test: /.(png|jpg|jpeg|gif|svg)$/,

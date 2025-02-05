@@ -25,7 +25,16 @@
       "@newtab/*": ["packages/newtab/src/*"],
       "@popup/*": ["packages/popup/src/*"],
       "@store/*": ["packages/store/*"]
-    }
+    },
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "customMatcher": "\\.module\\.css$",
+          "useConfig": true
+        }
+      }
+    ]
   },
   "include": ["packages/**/*"]
 }

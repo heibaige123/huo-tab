@@ -14,6 +14,7 @@
     "esbenp.prettier-vscode",
     "jock.svg",
     "bradlc.vscode-tailwindcss",
-    "wayou.vscode-todo-highlight"
+    "wayou.vscode-todo-highlight",
+    "viijay-kr.react-ts-css"
   ]
 }

@@ -20,9 +20,9 @@ module.exports = {
     extensions: ['.js', '.tsx', '.ts'],
     alias: getResolveAlias(),
   },
-  cache: {
-    type: 'filesystem',
-  },
+  // cache: {
+  //   type: 'filesystem',
+  // },
   plugins: getPlugins(),
   module: getBaseModules(),
 };
