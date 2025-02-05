@@ -1,16 +1,6 @@
 import { create } from 'zustand';
 import { nanoid } from 'nanoid';
-
-interface LabelCollectionItemType {
-  icon: string;
-  name: string;
-  id: string;
-  contentBack: {
-    'image'?: string;
-    'color'?: string;
-  },
-  isSelect: boolean;
-}
+import { LabelCollectionItemType, NewTabStoreType } from './types';
 
 const labelCollections: Array<LabelCollectionItemType> = [
   {
@@ -20,7 +10,10 @@ const labelCollections: Array<LabelCollectionItemType> = [
     isSelect: true,
     contentBack: {
       'image': 'repeating-radial-gradient( circle at 0 0, transparent 0, #e5e5f7 10px ), repeating-linear-gradient( #444cf755, #444cf7 )'
-    }
+    },
+    content: [{
+      title: '1'
+    }]
   },
   {
     icon: 'icon-park-twotone:boy-stroller',
@@ -28,8 +21,11 @@ const labelCollections: Array<LabelCollectionItemType> = [
     id: nanoid(),
     isSelect: false,
     contentBack: {
-      'image': 'radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px)'
-    }
+      'image': 'linear-gradient(135deg, #444cf755 25%, transparent 25%) -10px 0/ 20px 20px, linear-gradient(225deg, #444cf7 25%, transparent 25%) -10px 0/ 20px 20px, linear-gradient(315deg, #444cf755 25%, transparent 25%) 0px 0/ 20px 20px, linear-gradient(45deg, #444cf7 25%, #e5e5f7 25%) 0px 0/ 20px 20px'
+    },
+    content: [{
+      title: '2'
+    }]
   },
   {
     icon: 'icon-park-twotone:bitcoin',
@@ -37,8 +33,11 @@ const labelCollections: Array<LabelCollectionItemType> = [
     id: nanoid(),
     isSelect: false,
     contentBack: {
-      'image': 'linear-gradient(#444cf7 1px, transparent 1px), linear-gradient(to right, #444cf7 1px, #e5e5f7 1px)',
-    }
+      'image': 'linear-gradient(0deg, #e5e5f7 50%, #444cf7 50%)',
+    },
+    content: [{
+      title: '3'
+    }]
   },
   {
     icon: 'icon-park-twotone:api',
@@ -46,8 +45,11 @@ const labelCollections: Array<LabelCollectionItemType> = [
     id: nanoid(),
     isSelect: false,
     contentBack: {
-      image: 'repeating-linear-gradient( 45deg, #444cf7, #444cf7 5px, #e5e5f7 5px, #e5e5f7 25px )'
-    }
+      image: 'radial-gradient(circle at center center, #444cf7, #e5e5f7), repeating-radial-gradient(circle at center center, #444cf7, #444cf7, 10px, transparent 20px, transparent 10px)'
+    },
+    content: [{
+      title: '4'
+    }]
   },
   {
     icon: 'icon-park-twotone:bear',
@@ -55,8 +57,11 @@ const labelCollections: Array<LabelCollectionItemType> = [
     id: nanoid(),
     isSelect: false,
     contentBack: {
-      'image': 'linear-gradient(45deg, #444cf7 50%, #e5e5f7 50%)'
-    }
+      'image': 'linear-gradient(30deg, #444cf7 12%, transparent 12.5%, transparent 87%, #444cf7 87.5%, #444cf7), linear-gradient(150deg, #444cf7 12%, transparent 12.5%, transparent 87%, #444cf7 87.5%, #444cf7), linear-gradient(30deg, #444cf7 12%, transparent 12.5%, transparent 87%, #444cf7 87.5%, #444cf7), linear-gradient(150deg, #444cf7 12%, transparent 12.5%, transparent 87%, #444cf7 87.5%, #444cf7), linear-gradient(60deg, #444cf777 25%, transparent 25.5%, transparent 75%, #444cf777 75%, #444cf777), linear-gradient(60deg, #444cf777 25%, transparent 25.5%, transparent 75%, #444cf777 75%, #444cf777)'
+    },
+    content: [{
+      title: '5'
+    }]
   },
   {
     icon: 'icon-park-twotone:application',
@@ -64,8 +69,11 @@ const labelCollections: Array<LabelCollectionItemType> = [
     id: nanoid(),
     isSelect: false,
     contentBack: {
-      'image': 'repeating-linear-gradient(0deg, #444cf7, #444cf7 1px, #e5e5f7 1px, #e5e5f7)',
-    }
+      'image': 'linear-gradient(45deg, #444cf7 50%, #e5e5f7 50%)',
+    },
+    content: [{
+      title: '6'
+    }]
   },
   {
     icon: 'icon-park-twotone:apple',
@@ -73,24 +81,27 @@ const labelCollections: Array<LabelCollectionItemType> = [
     id: nanoid(),
     isSelect: false,
     contentBack: {
-      'image': 'radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent) 25px 25px, linear-gradient(#444cf7 2px, transparent 2px) 0 -1px, linear-gradient(90deg, #444cf7 2px, #e5e5f7 2px) -1px 0'
-    }
+      'image': 'repeating-linear-gradient(45deg, #444cf7 25%, transparent 25%, transparent 75%, #444cf7 75%, #444cf7), repeating-linear-gradient(45deg, #444cf7 25%, #e5e5f7 25%, #e5e5f7 75%, #444cf7 75%, #444cf7)'
+    },
+    content: [{
+      title: '7'
+    }]
   },
 ];
 
-export const useNewTabStore = create<{
-  labelCollections: typeof labelCollections
-}>((set) => ({
+export const useNewTabStore = create<NewTabStoreType>((set, get) => ({
   labelCollections: labelCollections,
+  selectedId: labelCollections[0].id,
 
-  focusLabelCollection: (id: string) => set((state) => {
-    state.labelCollections = state.labelCollections.map((item) => {
+  selectLabelCollection: (id: string) => set((state) => ({
+    selectedId: id,
+    labelCollections: state.labelCollections.map((item) => {
       if (item.id === id) {
         item.isSelect = true;
       } else {
         item.isSelect = false;
       }
       return item;
-    });
-  })
+    })
+  })),
 }));

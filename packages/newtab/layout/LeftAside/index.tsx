@@ -1,9 +1,9 @@
 import React from 'react';
 import { HuoAvatar } from '@common/components/Avatar';
-import { LabelCollections } from './components/LabelCollections';
-import { AddBtn } from './components/SettingBtn';
-import { MenuLine } from './components/MenuLine';
-import { SettingBtn } from './components/AddBtn';
+import { LabelCollections } from './LabelCollections';
+import { Line } from './Line';
+import { SettingBtn } from './SettingBtn';
+import { AddBtn } from './AddBtn';
 
 export function LeftAside(): React.JSX.Element {
   return (
@@ -11,13 +11,13 @@ export function LeftAside(): React.JSX.Element {
       <div className="ml-2 p-2 bg-slate-100 h-sidebar rounded-xl flex flex-col justify-between">
         <div>
           <HuoAvatar />
-          <MenuLine />
+          <Line />
         </div>
 
         <LabelCollections />
 
         <div>
-          <MenuLine />
+          <Line />
 
           <div className="mt-4">
             <AddBtn />
@@ -31,3 +31,4 @@ export function LeftAside(): React.JSX.Element {
     </div>
   );
 }
+
