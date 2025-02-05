@@ -1,6 +1,6 @@
 import React from 'react';
 import { HuoAvatar } from '@common/components/Avatar';
-import { LeftMenu } from './components/LeftMenu';
+import { LabelCollections } from './components/LabelCollections';
 import { AddBtn } from './components/SettingBtn';
 import { MenuLine } from './components/MenuLine';
 import { SettingBtn } from './components/AddBtn';
@@ -14,7 +14,7 @@ export function LeftAside(): React.JSX.Element {
           <MenuLine />
         </div>
 
-        <LeftMenu />
+        <LabelCollections />
 
         <div>
           <MenuLine />

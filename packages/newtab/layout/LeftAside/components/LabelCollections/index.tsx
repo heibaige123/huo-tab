@@ -3,13 +3,13 @@ import * as React from 'react';
 import { useNewTabStore } from '@store/index';
 import styles from './styles.module.css';
 
-export function LeftMenu(): React.JSX.Element {
-  const leftMenuList = useNewTabStore((state) => state.leftMenuList);
+export function LabelCollections(): React.JSX.Element {
+  const labelCollections = useNewTabStore((state) => state.labelCollections);
   const [selectIndex, setSelectIndex] = React.useState(0);
 
   return (
     <div className={styles['left-container']}>
-      {leftMenuList.map((item, index) => (
+      {labelCollections.map((item, index) => (
         <div className={styles['menu-item']} key={index}>
           <div
             className={[

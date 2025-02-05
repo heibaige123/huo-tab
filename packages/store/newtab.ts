@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { nanoid } from 'nanoid';
 
-interface MenuItemType {
+interface LabelCollectionItemType {
   icon: string;
   name: string;
   id: string;
@@ -12,7 +12,7 @@ interface MenuItemType {
   isSelect: boolean;
 }
 
-const leftMenuLit: Array<MenuItemType> = [
+const labelCollections: Array<LabelCollectionItemType> = [
   {
     icon: 'icon-park-twotone:arena',
     name: '主页',
@@ -79,12 +79,12 @@ const leftMenuLit: Array<MenuItemType> = [
 ];
 
 export const useNewTabStore = create<{
-  leftMenuList: typeof leftMenuLit
+  labelCollections: typeof labelCollections
 }>((set) => ({
-  leftMenuList: leftMenuLit,
+  labelCollections: labelCollections,
 
-  focusMenu: (id: string) => set((state) => {
-    state.leftMenuList = state.leftMenuList.map((item) => {
+  focusLabelCollection: (id: string) => set((state) => {
+    state.labelCollections = state.labelCollections.map((item) => {
       if (item.id === id) {
         item.isSelect = true;
       } else {
