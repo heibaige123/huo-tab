@@ -1,10 +1,10 @@
 import React from 'react';
 import BackImg from "^images/back.jpg";
 
-import { LeftAside } from '../LeftAside';
-import { Header } from '../Header/index';
-import { Content } from '../Content/index';
-import { RightAside } from '../RightAside/index';
+import { LeftAside } from '../layout/LeftAside';
+import { Header } from '../layout/Header/index';
+import { Content } from '../layout/Content/index';
+import { RightAside } from '../layout/RightAside/index';
 
 export function App(): React.JSX.Element {
   return (
