@@ -1,21 +1,3 @@
-.content,
-.content-inner {
-  @apply h-[calc(100vh-var(--header-height))];
-}
-
-.content {
-  @apply overflow-y-auto snap-y snap-mandatory;
-  @apply w-[calc(100vw-500px)];
-}
-
 .content::-webkit-scrollbar {
   @apply hidden;
-}
-
-.content-inner {
-  @apply snap-start;
-}
-
-.content-inner > div {
-  @apply bg-red-700 w-full h-full;
 }
