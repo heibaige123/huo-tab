@@ -13,8 +13,8 @@
   "aliases": {
     "components": "^components",
     "utils": "^lib/shancn",
-    "ui": "^shadcn",
-    "lib": "^lib",
+    "ui": "packages/common/shadcn",
+    "lib": "packages/common/lib",
     "hooks": "^hooks"
   },
   "iconLibrary": "lucide"
