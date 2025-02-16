@@ -92,6 +92,15 @@ const labelCollections: Array<LabelCollectionItemType> = [
 export const useNewTabStore = create<NewTabStoreType>((set, get) => ({
   labelCollections: labelCollections,
   selectedId: labelCollections[0].id,
+  showTabIndex: 0,
+
+  containerContentHeight: 0,
+
+
+  // get actions
+  getLabelLength: () => get().labelCollections.length || 1,
+
+  // set actions
 
   selectLabelCollection: (id: string) => set((state) => ({
     selectedId: id,
@@ -102,6 +111,43 @@ export const useNewTabStore = create<NewTabStoreType>((set, get) => ({
         item.isSelect = false;
       }
       return item;
-    })
+    }),
+    showTabIndex: state.labelCollections.findIndex((item) => item.id === id)
   })),
+
+  setContainerContentHeight: (height: number) => set((state) => ({
+    containerContentHeight: height || 0
+  })),
+
+  setShowTabIndex: (index: number) => set((state) => ({
+    showTabIndex: index,
+    selectedId: state.labelCollections[index].id
+  })),
+
 }));
+
+export function useNewTabStoreState() {
+  const labelCollections = useNewTabStore((state) => state.labelCollections);
+  const selectedId = useNewTabStore((state) => state.selectedId);
+  const showTabIndex = useNewTabStore((state) => state.showTabIndex);
+  const containerContentHeight = useNewTabStore((state) => state.containerContentHeight);
+  
+  const getLabelLength = useNewTabStore((state) => state.getLabelLength);
+  
+  const selectLabelCollection = useNewTabStore((state) => state.selectLabelCollection);
+  const setContainerContentHeight = useNewTabStore((state) => state.setContainerContentHeight);
+  const setShowTabIndex = useNewTabStore((state) => state.setShowTabIndex);
+
+  return {
+    labelCollections,
+    selectedId,
+    showTabIndex,
+    containerContentHeight,
+
+    getLabelLength,
+
+    selectLabelCollection,
+    setContainerContentHeight,
+    setShowTabIndex
+  };
+}

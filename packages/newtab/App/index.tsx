@@ -23,15 +23,15 @@ export function App(): React.JSX.Element {
 
   return (
     <AppContainer backImg={currentLabelCollection.contentBack.image}>
-      <div className="h-full w-[60px]">
+      <div className="h-full w-[60px] absolute top-0 left-0 z-10">
         <LeftAside />
       </div>
 
       <div className="">
-        <div>
+        <div className='absolute top-0 left-[200px] z-10'>
           <Header />
         </div>
-        <div>
+        <div className='top-0 bottom-0 left-0 right-0 fixed'>
           <Content />
         </div>
       </div>

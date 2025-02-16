@@ -16,6 +16,37 @@ function getBaseModules() {
         ],
       },
       {
+        test: /\.module\.scss$/, // 匹配以 .module.scss 结尾的文件
+        use: [
+          MiniCssExtractPlugin.loader, // 将 CSS 插入到页面
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[local]__[hash:base64:5]', // 类名生成规则
+                auto: true,
+                namedExport: false, // 确保 namedExport 为 false
+                exportLocalsConvention: 'as-is',
+              },
+              import: true,
+              esModule: true,
+            },
+          },
+          'postcss-loader',
+          'sass-loader', // 将 SCSS 编译为 CSS
+        ],
+      },
+      {
+        test: /\.scss$/, // 匹配普通 SCSS 文件
+        exclude: /\.module\.scss$/, // 排除 CSS Modules 文件
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+        ],
+      },
+      {
         test: /\.module\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
@@ -23,10 +54,10 @@ function getBaseModules() {
             loader: 'css-loader',
             options: {
               modules: {
-                localIdentName: "[local]_[hash:base64:5]",
+                localIdentName: '[local]_[hash:base64:5]',
                 auto: true,
                 namedExport: false, // 确保 namedExport 为 false
-                exportLocalsConvention: "as-is",
+                exportLocalsConvention: 'as-is',
               },
               import: true,
               esModule: true,
@@ -38,11 +69,7 @@ function getBaseModules() {
       {
         test: /\.css$/,
         exclude: /\.module\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'postcss-loader',
-        ],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
       {
         test: /.(png|jpg|jpeg|gif|svg)$/,

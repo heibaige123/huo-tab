@@ -1,32 +1,53 @@
-import { useNewTabStore } from '@store/index';
-import React, { useRef } from 'react';
-import tw, { styled, css } from 'twin.macro';
-
-const Styles = {
-  common: tw`h-[calc(100vh-var(--header-height))]`,
-};
-
-const Container = styled.div(() => [
-  Styles.common,
-  tw`overflow-y-auto snap-y snap-mandatory w-[calc(100vw-500px)] [&::-webkit-scrollbar]:hidden`,
-]);
-
-const ContentInner = styled.section(() => [Styles.common, tw`snap-start`]);
+import { useNewTabStoreState } from '@store/index';
+import React, { useRef, useEffect, useState, use } from 'react';
+import { AnimatePresence } from 'motion/react';
+import * as motion from 'motion/react-client';
+import Styles from './index.style.module.css';
 
 export function Content(): React.JSX.Element {
-  const labelCollections = useNewTabStore((state) => state.labelCollections);
+  const { labelCollections, showTabIndex, setContainerContentHeight } =
+    useNewTabStoreState();
+
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (containerRef.current) {
+      const offsetHeight = containerRef.current.offsetHeight;
+      setContainerContentHeight(offsetHeight);
+    }
+  });
+
+  useEffect(() => {
+    if (containerRef.current) {
+      const offsetHeight = containerRef.current.offsetHeight;
+
+      containerRef.current.scrollTop = showTabIndex * offsetHeight;
+
+      console.log('scroll-2', showTabIndex);
+    }
+  }, [showTabIndex]);
 
   return (
-    <Container>
-      {labelCollections.map((item) => {
-        return (
-          <ContentInner key={item.id}>
-            <div className="bg-red-700 w-full h-full">
-              {item.content[0].title}
-            </div>
-          </ContentInner>
-        );
-      })}
-    </Container>
+    <AnimatePresence>
+      <motion.div
+        ref={containerRef}
+        className={Styles.container}
+      >
+        {labelCollections.map((item) => {
+          return (
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              className={Styles['label-item-container']}
+              key={item.id}
+            >
+              <div className={Styles['label-item-inner']}>
+                {item.content[0].title}
+              </div>
+            </motion.div>
+          );
+        })}
+      </motion.div>
+    </AnimatePresence>
   );
 }

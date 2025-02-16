@@ -111,12 +111,6 @@ importers:
       html-webpack-plugin:
         specifier: ^5.6.3
         version: 5.6.3(webpack@5.97.1(webpack-cli@6.0.1))
-      less:
-        specifier: ^4.2.1
-        version: 4.2.1
-      less-loader:
-        specifier: ^12.2.0
-        version: 12.2.0(less@4.2.1)(webpack@5.97.1(webpack-cli@6.0.1))
       mini-css-extract-plugin:
         specifier: ^2.9.2
         version: 2.9.2(webpack@5.97.1(webpack-cli@6.0.1))
@@ -132,15 +126,18 @@ importers:
       react-refresh:
         specifier: ^0.16.0
         version: 0.16.0
+      sass:
+        specifier: ^1.85.0
+        version: 1.85.0
+      sass-loader:
+        specifier: ^16.0.5
+        version: 16.0.5(sass@1.85.0)(webpack@5.97.1(webpack-cli@6.0.1))
       style-loader:
         specifier: ^4.0.0
         version: 4.0.0(webpack@5.97.1(webpack-cli@6.0.1))
       styled-components:
         specifier: ^6.1.15
         version: 6.1.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      tailwind-scrollbar:
-        specifier: ^4.0.0
-        version: 4.0.0(react@19.0.0)(tailwindcss@3.4.17)
       tailwindcss:
         specifier: ^3.4.17
         version: 3.4.17
@@ -1386,9 +1383,6 @@ packages:
   '@types/postcss-modules-scope@3.0.4':
     resolution: {integrity: sha512-//ygSisVq9kVI0sqx3UPLzWIMCmtSVrzdljtuaAEJtGoGnpjBikZ2sXO5MpH9SnWX9HRfXxHifDAXcQjupWnIQ==}
 
-  '@types/prismjs@1.26.5':
-    resolution: {integrity: sha512-AUZTa7hQ2KY5L7AmtSiqxlhWxb4ina0yd8hNbl4TWuqnv/pFP0nDMb3YrfSBf4hJVGLh2YEIBfKaBW/9UEl6IQ==}
-
   '@types/qs@6.9.17':
     resolution: {integrity: sha512-rX4/bPcfmvxHDv0XjfJELTTr+iB+tn032nPILqHm5wbthUUUuVtNGGqzhya9XUxjTP8Fpr0qYgSZZKxGY++svQ==}
 
@@ -2590,19 +2584,6 @@ packages:
   launch-editor@2.9.1:
     resolution: {integrity: sha512-Gcnl4Bd+hRO9P9icCP/RVVT2o8SFlPXofuCxvA2SaZuH45whSvf5p8x5oih5ftLiVhEI4sp5xDY+R+b3zJBh5w==}
 
-  less-loader@12.2.0:
-    resolution: {integrity: sha512-MYUxjSQSBUQmowc0l5nPieOYwMzGPUaTzB6inNW/bdPEG9zOL3eAAD1Qw5ZxSPk7we5dMojHwNODYMV1hq4EVg==}
-    engines: {node: '>= 18.12.0'}
-    peerDependencies:
-      '@rspack/core': 0.x || 1.x
-      less: ^3.5.0 || ^4.0.0
-      webpack: ^5.0.0
-    peerDependenciesMeta:
-      '@rspack/core':
-        optional: true
-      webpack:
-        optional: true
-
   less@4.2.1:
     resolution: {integrity: sha512-CasaJidTIhWmjcqv0Uj5vccMI7pJgfD9lMkKtlnTHAdJdYK/7l8pM9tumLyJ0zhbD4KJLo/YvTj+xznQd5NBhg==}
     engines: {node: '>=6'}
@@ -3395,11 +3376,6 @@ packages:
   pretty-error@4.0.0:
     resolution: {integrity: sha512-AoJ5YMAcXKYxKhuJGdcvse+Voc6v1RgnsR3nWcYU7q4t6z0Q6T86sv5Zq8VIRbOWWFpvdGE83LtdSMNd+6Y0xw==}
 
-  prism-react-renderer@2.4.1:
-    resolution: {integrity: sha512-ey8Ls/+Di31eqzUxC46h8MksNuGx/n0AAC8uKpwFau4RPDYLuE3EXTp8N8G2vX2N7UC/+IXeNUnlWBGGcAG+Ig==}
-    peerDependencies:
-      react: '>=16.0.0'
-
   process-nextick-args@2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
 
@@ -3552,8 +3528,29 @@ packages:
   safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
-  sass@1.83.1:
-    resolution: {integrity: sha512-EVJbDaEs4Rr3F0glJzFSOvtg2/oy2V/YrGFPqPY24UqcLDWcI9ZY5sN+qyO3c/QCZwzgfirvhXvINiJCE/OLcA==}
+  sass-loader@16.0.5:
+    resolution: {integrity: sha512-oL+CMBXrj6BZ/zOq4os+UECPL+bWqt6OAC6DWS8Ln8GZRcMDjlJ4JC3FBDuHJdYaFWIdKNIBYmtZtK2MaMkNIw==}
+    engines: {node: '>= 18.12.0'}
+    peerDependencies:
+      '@rspack/core': 0.x || 1.x
+      node-sass: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0
+      sass: ^1.3.0
+      sass-embedded: '*'
+      webpack: ^5.0.0
+    peerDependenciesMeta:
+      '@rspack/core':
+        optional: true
+      node-sass:
+        optional: true
+      sass:
+        optional: true
+      sass-embedded:
+        optional: true
+      webpack:
+        optional: true
+
+  sass@1.85.0:
+    resolution: {integrity: sha512-3ToiC1xZ1Y8aU7+CkgCI/tqyuPXEmYGJXO7H4uqp0xkLXUqp88rQQ4j1HmP37xSJLbCJPaIiv+cT1y+grssrww==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -3777,12 +3774,6 @@ packages:
 
   tailwind-merge@2.6.0:
     resolution: {integrity: sha512-P+Vu1qXfzediirmHOC3xKGAYeZtPcV9g76X+xg2FD4tYgR71ewMA35Y3sCz3zhiN/dwefRpJX0yBcgwi1fXNQA==}
-
-  tailwind-scrollbar@4.0.0:
-    resolution: {integrity: sha512-elqx9m09VHY8gkrMiyimFO09JlS3AyLFXT0eaLaWPi7ImwHlbZj1ce/AxSis2LtR+ewBGEyUV7URNEMcjP1Z2w==}
-    engines: {node: '>=12.13.0'}
-    peerDependencies:
-      tailwindcss: 4.x
 
   tailwindcss-animate@1.0.7:
     resolution: {integrity: sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA==}
@@ -5456,8 +5447,6 @@ snapshots:
     dependencies:
       postcss: 8.4.49
 
-  '@types/prismjs@1.26.5': {}
-
   '@types/qs@6.9.17': {}
 
   '@types/range-parser@1.2.7': {}
@@ -6692,12 +6681,6 @@ snapshots:
       picocolors: 1.1.1
       shell-quote: 1.8.2
 
-  less-loader@12.2.0(less@4.2.1)(webpack@5.97.1(webpack-cli@6.0.1)):
-    dependencies:
-      less: 4.2.1
-    optionalDependencies:
-      webpack: 5.97.1(webpack-cli@6.0.1)
-
   less@4.2.1:
     dependencies:
       copy-anything: 2.0.6
@@ -7466,12 +7449,6 @@ snapshots:
       lodash: 4.17.21
       renderkid: 3.0.0
 
-  prism-react-renderer@2.4.1(react@19.0.0):
-    dependencies:
-      '@types/prismjs': 1.26.5
-      clsx: 2.1.1
-      react: 19.0.0
-
   process-nextick-args@2.0.1: {}
 
   proxy-addr@2.0.7:
@@ -7617,7 +7594,14 @@ snapshots:
 
   safer-buffer@2.1.2: {}
 
-  sass@1.83.1:
+  sass-loader@16.0.5(sass@1.85.0)(webpack@5.97.1(webpack-cli@6.0.1)):
+    dependencies:
+      neo-async: 2.6.2
+    optionalDependencies:
+      sass: 1.85.0
+      webpack: 5.97.1(webpack-cli@6.0.1)
+
+  sass@1.85.0:
     dependencies:
       chokidar: 4.0.3
       immutable: 5.0.3
@@ -7898,13 +7882,6 @@ snapshots:
 
   tailwind-merge@2.6.0: {}
 
-  tailwind-scrollbar@4.0.0(react@19.0.0)(tailwindcss@3.4.17):
-    dependencies:
-      prism-react-renderer: 2.4.1(react@19.0.0)
-      tailwindcss: 3.4.17
-    transitivePeerDependencies:
-      - react
-
   tailwindcss-animate@1.0.7(tailwindcss@3.4.17):
     dependencies:
       tailwindcss: 3.4.17
@@ -8027,7 +8004,7 @@ snapshots:
       postcss-modules-local-by-default: 4.2.0(postcss@8.4.49)
       postcss-modules-scope: 3.2.1(postcss@8.4.49)
       reserved-words: 0.1.2
-      sass: 1.83.1
+      sass: 1.85.0
       source-map-js: 1.2.1
       stylus: 0.62.0
       tsconfig-paths: 4.2.0

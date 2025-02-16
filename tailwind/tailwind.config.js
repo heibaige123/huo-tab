@@ -9,7 +9,6 @@ module.exports = {
   theme,
   plugins: [
     require('tailwindcss-animate'),
-    require('tailwind-scrollbar'),
     plugin(function ({ addComponents }) {
       addComponents(components);
     }),
