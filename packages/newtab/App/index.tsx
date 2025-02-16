@@ -14,29 +14,25 @@ const AppContainer = styled.div<{ backImg?: string }>(({ backImg }) => [
 
 export function App(): React.JSX.Element {
   const currentLabelCollection = useNewTabStore((state) => {
-    return (
-      state.labelCollections.find(
-        (labelCollection) => labelCollection.id === state.selectedId
-      ) || state.labelCollections[0]
-    );
+    return state.labelCollections[state.showTabIndex];
   });
 
   return (
     <AppContainer backImg={currentLabelCollection.contentBack.image}>
-      <div className="h-full w-[60px] absolute top-0 left-0 z-10">
+      <div className="h-full w-[60px]">
         <LeftAside />
       </div>
 
-      <div className="">
-        <div className='absolute top-0 left-[200px] z-10'>
+      <div className="flex-1 relative ml-[100px]">
+        <div className="absolute top-0 z-10 w-full flex justify-center px-[100px]">
           <Header />
         </div>
-        <div className='top-0 bottom-0 left-0 right-0 fixed'>
+        <div className="absolute top-0 bottom-0 w-full">
           <Content />
         </div>
       </div>
 
-      <div>
+      <div className="h-full w-[80px]">
         <RightAside />
       </div>
     </AppContainer>
