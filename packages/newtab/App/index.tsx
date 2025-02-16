@@ -23,12 +23,14 @@ export function App(): React.JSX.Element {
         <LeftAside />
       </div>
 
-      <div className="flex-1 relative ml-[100px]">
-        <div className="absolute top-0 z-10 w-full flex justify-center px-[100px]">
-          <Header />
-        </div>
-        <div className="absolute top-0 bottom-0 w-full">
-          <Content />
+      <div className="flex-1 relative ml-[100px] px-[100px]">
+        <div className="relative w-full h-full">
+          <div className="absolute top-0 z-10 w-full flex justify-center px-[100px]">
+            <Header />
+          </div>
+          <div className="absolute top-0 bottom-0 w-full">
+            <Content />
+          </div>
         </div>
       </div>
 

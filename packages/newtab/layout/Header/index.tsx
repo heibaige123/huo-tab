@@ -73,7 +73,7 @@ export function Header(): React.JSX.Element {
         </form>
       </Form>
 
-      <ChangeSearchPanel />
+      {/* <ChangeSearchPanel /> */}
     </div>
   );
 }

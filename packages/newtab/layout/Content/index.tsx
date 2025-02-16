@@ -4,6 +4,7 @@ import { AnimatePresence } from 'motion/react';
 import * as motion from 'motion/react-client';
 import Styles from './index.style.module.scss';
 import { LabelCollectionItemType } from '@store/types';
+import { ContentInner } from './ContentInner';
 
 const threshold = 10;
 
@@ -107,7 +108,7 @@ function LabelContent({
       onScroll={(e) => handleScroll(e)}
       data-index={index}
     >
-      <div className={Styles['label-item']}>{label.content[0].title}</div>
+      <ContentInner />
     </div>
   );
 }
