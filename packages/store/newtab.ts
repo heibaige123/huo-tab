@@ -94,14 +94,16 @@ export const useNewTabStore = create<NewTabStoreType>((set, get) => ({
   selectedId: labelCollections[0].id,
   showTabIndex: 0,
 
-  containerContentHeight: 0,
+  getContentHeight: () => {
+    const labelCollectionLength = get().labelCollections.length || 1;
 
-
-  // get actions
-  getLabelLength: () => get().labelCollections.length || 1,
+    return {
+      containerHeight: labelCollectionLength * 100,
+      labelItemHeight: 100 / labelCollectionLength
+    };
+  },
 
   // set actions
-
   selectLabelCollection: (id: string) => set((state) => ({
     selectedId: id,
     labelCollections: state.labelCollections.map((item) => {
@@ -114,40 +116,20 @@ export const useNewTabStore = create<NewTabStoreType>((set, get) => ({
     }),
     showTabIndex: state.labelCollections.findIndex((item) => item.id === id)
   })),
+  setShowTabIndex: (index: number) => set((state) => {
+    const labelLength = state.labelCollections.length;
+    let newIndex = index;
 
-  setContainerContentHeight: (height: number) => set((state) => ({
-    containerContentHeight: height || 0
-  })),
+    if (index < 0) {
+      newIndex = labelLength - 1;
+    }
+    else if (index >= labelLength) {
+      newIndex = 0;
+    }
 
-  setShowTabIndex: (index: number) => set((state) => ({
-    showTabIndex: index,
-    selectedId: state.labelCollections[index].id
-  })),
-
+    return {
+      showTabIndex: newIndex,
+      selectedId: state.labelCollections[newIndex].id
+    }
+  })
 }));
-
-export function useNewTabStoreState() {
-  const labelCollections = useNewTabStore((state) => state.labelCollections);
-  const selectedId = useNewTabStore((state) => state.selectedId);
-  const showTabIndex = useNewTabStore((state) => state.showTabIndex);
-  const containerContentHeight = useNewTabStore((state) => state.containerContentHeight);
-  
-  const getLabelLength = useNewTabStore((state) => state.getLabelLength);
-  
-  const selectLabelCollection = useNewTabStore((state) => state.selectLabelCollection);
-  const setContainerContentHeight = useNewTabStore((state) => state.setContainerContentHeight);
-  const setShowTabIndex = useNewTabStore((state) => state.setShowTabIndex);
-
-  return {
-    labelCollections,
-    selectedId,
-    showTabIndex,
-    containerContentHeight,
-
-    getLabelLength,
-
-    selectLabelCollection,
-    setContainerContentHeight,
-    setShowTabIndex
-  };
-}

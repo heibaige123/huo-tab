@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from './styles.module.css';
+import Styles from './LabelCollections.module.scss';
 import { useNewTabStore } from '@store/index';
 import { LabelConnectionIcon } from './LabelConnectionIcon';
 import { LabelCollectionItemType } from '@store/types';
@@ -14,7 +14,7 @@ function Icon(prop: LabelCollectionItemType) {
     <div
       className={[
         selectedId === prop.id ? 'bg-gray-400' : '',
-        styles['menu-item-icon'],
+        Styles['left-item-icon'],
       ].join(' ')}
       onClick={() => selectLabelCollection(prop.id)}
     >
@@ -27,12 +27,12 @@ export function LabelCollections(): React.JSX.Element {
   const labelCollections = useNewTabStore((state) => state.labelCollections);
 
   return (
-    <div className={styles['left-container']}>
+    <div className={Styles['left-container']}>
       {labelCollections.map((item) => (
-        <div className={styles['menu-item']} key={item.id}>
+        <div className={Styles['left-item']} key={item.id}>
           <Icon {...item} />
 
-          <div className={styles['menu-item-txt']}>
+          <div className={Styles['left-item-txt']}>
             <div>{item.name}</div>
           </div>
         </div>

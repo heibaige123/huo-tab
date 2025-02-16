@@ -13,10 +13,6 @@
   }
 }
 
-.h-sidebar {
-  height: clamp(min(480px, 70%), 636px, 70%);
-}
-
 .transition-category-pointer {
   transition: all 0.2s;
 }

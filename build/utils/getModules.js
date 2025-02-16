@@ -23,7 +23,7 @@ function getBaseModules() {
             loader: 'css-loader',
             options: {
               modules: {
-                localIdentName: '[local]__[hash:base64:5]', // 类名生成规则
+                localIdentName: '[local]', // 类名生成规则
                 auto: true,
                 namedExport: false, // 确保 namedExport 为 false
                 exportLocalsConvention: 'as-is',
@@ -54,7 +54,7 @@ function getBaseModules() {
             loader: 'css-loader',
             options: {
               modules: {
-                localIdentName: '[local]_[hash:base64:5]',
+                localIdentName: '[local]',
                 auto: true,
                 namedExport: false, // 确保 namedExport 为 false
                 exportLocalsConvention: 'as-is',

@@ -16,14 +16,13 @@ export interface NewTabStoreType {
   labelCollections: LabelCollectionItemType[];
   selectedId: LabelCollectionItemType['id'];
 
-  containerContentHeight: number;
-
-  getLabelLength: () => number;
-
   showTabIndex: number;
 
-  selectLabelCollection: (id: string) => void;
-  setContainerContentHeight: (height: number) => void;
+  getContentHeight: () => {
+    containerHeight: number;
+    labelItemHeight: number;
+  };
 
+  selectLabelCollection: (id: string) => void;
   setShowTabIndex: (index: number) => void;
 }
