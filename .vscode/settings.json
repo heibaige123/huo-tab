@@ -1,9 +1,9 @@
 {
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": true,
-  "explorer.fileNesting.patterns": {
-    "package.json": "*.gitignore, *.js, *.json, *.yaml"
-  },
+  // "explorer.fileNesting.patterns": {
+  //   "package.json": "*.gitignore, *.js, *.json, *.yaml"
+  // },
   "css.customData": [".vscode/tailwindcss.json"],
   "cSpell.words": [
     "flac",

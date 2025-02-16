@@ -17,10 +17,7 @@
     "baseUrl": ".",
     "paths": {
       "@common/*": ["packages/common/*"],
-      "^components/*": ["packages/common/components/*"],
       "^images/*": ["packages/common/images/*"],
-      "^lib/*": ["packages/common/lib/*"],
-      "^shadcn/*": ["packages/common/shadcn/*"],
       "^style/*": ["packages/common/style/*"],
       "@newtab/*": ["packages/newtab/src/*"],
       "@popup/*": ["packages/popup/src/*"],
