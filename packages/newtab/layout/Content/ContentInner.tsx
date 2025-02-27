@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect, createRef, useRef } from 'react';
+import { GridStackDemo } from './demo/demo';
+
 
 export function ContentInner(): React.JSX.Element {
-  return <div>{Date.now()}</div>;
+  return <GridStackDemo />;
 }
